@@ -1,0 +1,23 @@
+  body{
+    background-image: url(Images/wallpaperflare.com_wallpaper.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size:cover;
+  }
+  .title{
+  
+    text-align:center;
+    font-size:150px;
+    font-family:Macondo;
+    /* color: rgba(255, 64, 0, 0.667); */
+    color: whitesmoke
+    /* <!-- font-family: "Courier New", Courier, monospace;--> */
+  }
+
+  .prod-descrip{
+    color: whitesmoke;
+  }
+
+  .prod-desrip-head{
+    color:whitesmoke;
+  }

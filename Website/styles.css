@@ -1,23 +1,46 @@
   body{
+    text-align: center;
     background-image: url(Images/wallpaperflare.com_wallpaper.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size:cover;
-  }
-  .title{
-  
-    text-align:center;
-    font-size:150px;
     font-family:Macondo;
-    /* color: rgba(255, 64, 0, 0.667); */
-    color: whitesmoke
-    /* <!-- font-family: "Courier New", Courier, monospace;--> */
-  }
-
-  .prod-descrip{
-    color: whitesmoke;
-  }
-
-  .prod-desrip-head{
     color:whitesmoke;
   }
+  .title{
+    font-size:150px;
+    font-family:Macondo;
+    margin-top:275px;
+    margin-bottom:350px;
+  }
+
+  .center-list{
+    margin:auto;
+    width: 360px;
+    text-align: left;
+    background-color: rgba(175, 101, 10, 0.5);
+  }
+
+  .paragraph{
+    width: 700px;
+    margin: 0 auto;
+    background-color: rgba(175, 101, 10, 0.5);
+  }
+
+  h2, h3{
+    width:300px;
+    margin:0 auto;
+    background-color: rgba(100, 0, 0, 0.5);
+    border-radius: 15px;
+    margin-bottom: 30px;
+    margin-top: 75px;
+  }
+
+  .all{
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 40px 80px 50px 80px;
+    position: relative;
+    margin: 0 auto;
+    max-width: 960px;
+  }
+    

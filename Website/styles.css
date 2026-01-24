@@ -81,3 +81,19 @@
     margin-bottom: 180px;
     margin-top: 10px;
   }
+
+  .vidbox{
+    max-width:1216px;
+  }
+
+  .vid{
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+  .frame{
+    position:relative;
+    width: 800px;
+    height: 450px;
+    border:0;
+  }

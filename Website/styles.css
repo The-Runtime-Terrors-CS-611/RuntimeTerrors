@@ -11,7 +11,8 @@
     font-size:150px;
     font-family:Macondo;
     margin-top:275px;
-    margin-bottom:280px;
+    margin-bottom:0px;
+    padding-bottom: 0px;
   }
 
   .center-list{
@@ -19,6 +20,7 @@
     width: 360px;
     text-align: left;
     background-color: rgba(175, 101, 10, 0.5);
+    font-size: 18px;
   }
 
   .paragraph{
@@ -30,6 +32,15 @@
     padding-left: 6px;
     padding-right: 6px;
     border-radius: 3px;
+    font-size: 18px;
+  }
+
+  h2{
+    font-size: 30px;
+  }
+
+  h3{
+    font-size: 22px;
   }
 
   h2, h3{
@@ -52,5 +63,21 @@
   }
   .prod-vision{
     margin-top: 30px;
-    }
-    
+  }
+
+  img{
+    clip-path:circle();
+    width: 150px;
+    height: 150px;
+    margin-bottom: 15px;
+  }
+
+  .name{
+    margin-bottom: 15px;
+  }
+
+  .tag{
+    font-size: 45px;
+    margin-bottom: 180px;
+    margin-top: 10px;
+  }

@@ -94,11 +94,29 @@
     margin-top: 30px;
   }
 
-  img{
+  .biopic{
     clip-path:circle();
     width: 150px;
     height: 150px;
     margin-bottom: 15px;
+  }
+
+  .processpic{
+    width: 800px;
+    height: 450px;
+    margin-top: 75px;
+  }
+
+  .longpic{
+    width: 800px;
+    height: 1300px;
+    margin-top: 75px;
+  }
+
+  .toppic{
+    width: 800px;
+    height: 450px;
+    margin-top: 30px
   }
 
   .name{
@@ -132,7 +150,7 @@
   }
 
   a:visited{
-    color: crimson
+    color: whitesmoke
   }
 
   a:hover{
@@ -150,7 +168,7 @@
     margin: 0 auto;
     max-width: 960px;
     justify-content: center;
-    margin-top: 120px;
+    margin-top: 53.4px;
   }
 
   .scenario_design{
@@ -161,4 +179,33 @@
     max-width: 960px;
     justify-content: center;
     margin-top: 35px;
+  }
+
+  .new_desigh{
+    padding: 3px 80px 50px 80px;
+    position: relative;
+    margin: 0 auto;
+    max-width: 960px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .nav{
+    box-sizing:border-box;
+    display:block;
+    font-size:30px;
+    height:66.4px;
+    padding-bottom:20px;
+    padding-left:20px;
+    padding-right:20px;
+    padding-top:20px;
+    unicode-bidi:isolate;
+    width:640px;
+    margin: 0 auto;
+    /* position: sticky;
+    top: 0 */
+  }
+
+  a{
+    text-decoration: none;
   }

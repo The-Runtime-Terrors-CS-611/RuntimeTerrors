@@ -35,6 +35,30 @@
     font-size: 18px;
   }
 
+  .design_link{
+     width: 360px;
+    margin: 0 auto;
+    background-color: rgba(175, 101, 10, 0.5);
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 6px;
+    padding-right: 6px;
+    border-radius: 3px;
+    font-size: 18px;
+  }
+
+  .paragraph_design{
+    width: 300px;
+    margin: 0 auto;
+    background-color: rgba(175, 101, 10, 0.5);
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 6px;
+    padding-right: 6px;
+    border-radius: 3px;
+    font-size: 26px;
+  }
+
   h2{
     font-size: 30px;
   }
@@ -54,6 +78,11 @@
     padding-bottom: 7px;
   }
 
+  .design{
+    width:500px;
+    font-size: 45px
+  }
+
   .all{
     background-color: rgba(0, 0, 0, 0.7);
     padding: 3px 80px 50px 80px;
@@ -65,11 +94,29 @@
     margin-top: 30px;
   }
 
-  img{
+  .biopic{
     clip-path:circle();
     width: 150px;
     height: 150px;
     margin-bottom: 15px;
+  }
+
+  .processpic{
+    width: 800px;
+    height: 450px;
+    margin-top: 75px;
+  }
+
+  .longpic{
+    width: 800px;
+    height: 1300px;
+    margin-top: 75px;
+  }
+
+  .toppic{
+    width: 800px;
+    height: 450px;
+    margin-top: 30px
   }
 
   .name{
@@ -82,10 +129,6 @@
     margin-top: 10px;
   }
 
-  .vidbox{
-    max-width:1216px;
-  }
-
   .vid{
     position: relative;
     margin-bottom: 20px;
@@ -96,4 +139,69 @@
     width: 800px;
     height: 450px;
     border:0;
+  }
+
+  a:link{
+    color: whitesmoke
+  }
+
+  a:visited{
+    color: whitesmoke
+  }
+
+  a:hover{
+    color: gold
+  }
+
+  a:active{
+    color: whitesmoke
+  }
+
+  .all_design{
+    /* background-color: rgba(0, 0, 0, 0.7); */
+    padding: 3px 80px 50px 80px;
+    position: relative;
+    margin: 0 auto;
+    max-width: 960px;
+    justify-content: center;
+    margin-top: 53.4px;
+  }
+
+  .scenario_design{
+    /* background-color: rgba(0, 0, 0, 0.7); */
+    padding: 3px 80px 50px 80px;
+    position: relative;
+    margin: 0 auto;
+    max-width: 960px;
+    justify-content: center;
+    margin-top: 35px;
+  }
+
+  .new_desigh{
+    padding: 3px 80px 50px 80px;
+    position: relative;
+    margin: 0 auto;
+    max-width: 960px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .nav{
+    box-sizing:border-box;
+    display:block;
+    font-size:30px;
+    height:66.4px;
+    padding-bottom:20px;
+    padding-left:20px;
+    padding-right:20px;
+    padding-top:20px;
+    unicode-bidi:isolate;
+    width:640px;
+    margin: 0 auto;
+    /* position: sticky;
+    top: 0 */
+  }
+
+  a{
+    text-decoration: none;
   }

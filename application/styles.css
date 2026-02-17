@@ -1,0 +1,36 @@
+  body{
+    text-align: center;
+    background-image: url(Images/wallpaperflare.com_wallpaper.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size:cover;
+    font-family:Macondo;
+    color:whitesmoke;
+    font-size: 18px;
+  }
+
+  select{
+    text-align: center;
+    background-color: black;
+    color: rgb(244, 231, 58);
+    border:none;
+    outline: none;
+    font-family: Macondo;
+    font-size: 18px;
+  }
+
+  .title{
+    font-size:150px;
+    font-family:Macondo;
+    margin-top:275px;
+    margin-bottom:255px;
+    padding-bottom: 0px;
+  }
+
+  .all{
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 3px 80px 50px 80px;
+    position: relative;
+    margin: 0 auto;
+    max-width: 960px;
+  }

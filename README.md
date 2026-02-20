@@ -76,17 +76,17 @@ This project is **Dockerized**, meaning all dependencies and runtime environment
 
 ```bash
 # Clone the repo
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/The-Runtime-Terrors-CS-611/RuntimeTerrors.git
+cd RuntimeTerrors
 
 # Build Docker image
-docker build -t forged-in-fire:latest .
+docker build -t forged-in-fire -f ./application/Dockerfile ./application
 
 # OR build with Docker Compose
 docker-compose build
 
 # Run the application
-docker run -p 8080:8080 forged-in-fire:latest
+docker run --rm -p 8080:80 forged-in-fire
 
 # OR run with Docker Compose
 docker-compose up
@@ -97,3 +97,14 @@ docker-compose up
 # Stop containers
 docker stop <container-id>
 docker-compose down
+
+## Build Test Image
+
+```bash
+docker build -t forged-in-fire-tests -f ./application/Dockerfile.test ./application
+```
+
+## Run Tests
+
+```bash
+docker run --rm forged-in-fire-tests

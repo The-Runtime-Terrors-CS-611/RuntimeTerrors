@@ -60,3 +60,40 @@ that immerses players in a world where they have the autonomy to change how the 
 ●	Lightweight, text‑only interface
 
 ●	Accessible and easy to pick up
+
+---
+
+## Docker Setup (All-in-One)
+
+This project is **Dockerized**, meaning all dependencies and runtime environments are packaged in a container. You do **not** need to install anything besides Docker to build and run the game.
+
+### Prerequisites
+
+- [Docker](https://www.docker.com/get-started) installed.  
+- Optional: [Docker Compose](https://docs.docker.com/compose/install/) for multi-container setups.
+
+### Build and Run Commands
+
+```bash
+# Clone the repo
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
+
+# Build Docker image
+docker build -t forged-in-fire:latest .
+
+# OR build with Docker Compose
+docker-compose build
+
+# Run the application
+docker run -p 8080:8080 forged-in-fire:latest
+
+# OR run with Docker Compose
+docker-compose up
+
+# Access in browser at:
+# http://localhost:8080
+
+# Stop containers
+docker stop <container-id>
+docker-compose down

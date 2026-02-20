@@ -1,0 +1,11 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+COPY package.json package-lock.json* jest.config.cjs /app/
+
+RUN npm ci || npm install
+
+COPY . /app/
+
+CMD ["npm", "test"]

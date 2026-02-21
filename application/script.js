@@ -51,3 +51,9 @@ function updateCharacter() {
 
 selectElement.addEventListener('change', updateCharacter);
 updateCharacter();
+
+if (typeof window !== "undefined") {
+    window.__forgedInFire__ = {
+        updateCharacter,
+    };
+}

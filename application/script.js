@@ -1,59 +1,118 @@
+function hide(selector) {
+    const elements = document.querySelectorAll(selector);
+    elements.forEach(el => el.style.display = "none");
+}
+
 const selectElement = document.getElementById('character-select');
-const infoParagraph = document.getElementById('character-info');
+const mageSelect = document.getElementById('mage-select');
+const rogueSelect = document.getElementById('rogue-select');
+const barbarianSelect = document.getElementById('barbarian-select');
+const rangerSelect = document.getElementById('ranger-select');
 
 function updateCharacter() {
+    hide('.level1');
+    hide('.level2');
+ 
+    if (mageSelect) mageSelect.selectedIndex = 0;
+    if (rogueSelect) rogueSelect.selectedIndex = 0;
+    if (barbarianSelect) barbarianSelect.selectedIndex = 0;
+    if (rangerSelect) rangerSelect.selectedIndex = 0;
+
     const characterSelect = selectElement.value;
     switch (characterSelect) {
         case 'ranger':
-            const nonRanger = document.querySelectorAll("#barbarianStart, #rogueStart, #mageStart");
-            nonRanger.forEach(element => {
-                element.style.display = "none";
-            }); 
-            infoParagraph.innerHTML = 'You shot or whatever';
             document.getElementById("rangerStart").style.display= "block";
             break;
 
         case 'barbarian':
-            const nonBarbarian = document.querySelectorAll("#rangerStart, #rogueStart, #mageStart");
-            nonBarbarian.forEach(element => {
-                element.style.display = "none";
-            })
-            infoParagraph.innerHTML = 'Next barbarian decision.';
             document.getElementById("barbarianStart").style.display = "block";
             break;
 
         case 'rogue':
-            const nonRogue = document.querySelectorAll("#rangerStart, #barbarianStart, #mageStart");
-            nonRogue.forEach(element => {
-                element.style.display = "none";
-            })
-            infoParagraph.innerHTML = 'Next rogue decision.';
             document.getElementById("rogueStart").style.display = "block";
             break;
 
         case 'mage':
-            const nonMage = document.querySelectorAll("#rangerStart, #barbarianStart, #rogueStart");
-            nonMage.forEach(element => {
-                element.style.display = "none";
-            })
-            infoParagraph.innerHTML = 'Next mage decision.';
             document.getElementById("mageStart").style.display = "block";
             break;
 
         default:
-            const level1Branch = document.getElementsByClassName("level1");
-            for (let i = 0; i < level1Branch.length; i++) {
-                level1Branch[i].style.display = "none";
-            }
-            infoParagraph.innerHTML = '';
+            hide('.level1');
     }
 }
-
 selectElement.addEventListener('change', updateCharacter);
 updateCharacter();
+
+function mageBranching() {
+    const mageFirst = mageSelect.value;
+    hide('.level2');
+    switch (mageFirst) {
+        case 'mage1':
+            document.getElementById("mageA").style.display= "block";
+            break;
+
+        case 'mage2':
+            document.getElementById("mageB").style.display = "block";
+            break;
+    }
+}
+mageSelect.addEventListener('change', mageBranching);
+mageBranching();
+
+function rogueBranching() {
+    const rogueFirst = rogueSelect.value;
+    hide('.level2');
+    switch (rogueFirst) {
+        case 'rogue1':
+            document.getElementById("rogueA").style.display= "block";
+            break;
+
+        case 'rogue2':
+            document.getElementById("rogueB").style.display = "block";
+            break;
+    }
+}
+rogueSelect.addEventListener('change', rogueBranching);
+rogueBranching();
+
+function rangerBranching() {
+    const rangerFirst = rangerSelect.value;
+    hide('.level2');
+    switch (rangerFirst) {
+        case 'ranger1':
+            document.getElementById("rangerA").style.display= "block";
+            break;
+
+        case 'ranger2':
+            document.getElementById("rangerB").style.display = "block";
+            break;
+    }
+}
+rangerSelect.addEventListener('change', rangerBranching);
+rangerBranching();
+
+function barbarianBranching() {
+    const barbarianFirst = barbarianSelect.value;
+    hide('.level2');
+    switch (barbarianFirst) {
+        case 'barbarian1':
+            document.getElementById("barbarianA").style.display= "block";
+            break;
+
+        case 'barbarian2':
+            document.getElementById("barbarianB").style.display = "block";
+            break;
+    }
+}
+barbarianSelect.addEventListener('change', barbarianBranching);
+barbarianBranching();
 
 if (typeof window !== "undefined") {
     window.__forgedInFire__ = {
         updateCharacter,
+        mageBranching,
+        rogueBranching,
+        rangerBranching,
+        barbarianBranching
     };
 }

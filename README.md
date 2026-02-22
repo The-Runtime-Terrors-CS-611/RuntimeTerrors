@@ -70,7 +70,6 @@ This project is **Dockerized**, meaning all dependencies and runtime environment
 ### Prerequisites
 
 - [Docker](https://www.docker.com/get-started) installed.  
-- Optional: [Docker Compose](https://docs.docker.com/compose/install/) for multi-container setups.
 
 ### Build and Run Commands
 
@@ -88,23 +87,14 @@ docker-compose build
 # Run the application
 docker run --rm -p 8080:80 forged-in-fire
 
-# OR run with Docker Compose
-docker-compose up
-
 # Access in browser at:
 # http://localhost:8080
 
-# Stop containers
-docker stop <container-id>
-docker-compose down
-
 ## Build Test Image
-
-```bash
 docker build -t forged-in-fire-tests -f ./application/Dockerfile.test ./application
-```
 
 ## Run Tests
-
-```bash
 docker run --rm forged-in-fire-tests
+
+# Stop containers
+docker stop <container-id>

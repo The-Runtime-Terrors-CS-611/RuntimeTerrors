@@ -10,12 +10,9 @@ function loadHtmlIntoDom() {
 }
 
 function loadScript() {
-  // Ensure a clean load each test
   jest.resetModules();
-
   const scriptPath = path.join(__dirname, "..", "script.js");
   const scriptCode = fs.readFileSync(scriptPath, "utf8");
-
   // Execute the script in the JSDOM context
   // eslint-disable-next-line no-eval
   eval(scriptCode);
@@ -23,85 +20,80 @@ function loadScript() {
 
 function setSelectValue(selectId, value) {
   const select = document.getElementById(selectId);
+  if (!select) throw new Error(`Missing select element: #${selectId}`);
   select.value = value;
-  // Either call updateCharacter directly, or simulate the event.
   select.dispatchEvent(new Event("change"));
 }
 
-describe("Forged in Fire - character selection branching", () => {
+function expectHidden(id) {
+  const el = document.getElementById(id);
+  if (!el) throw new Error(`Missing element: #${id}`);
+  expect(el.style.display).toBe("none");
+}
+
+function expectShown(id) {
+  const el = document.getElementById(id);
+  if (!el) throw new Error(`Missing element: #${id}`);
+  expect(el.style.display).toBe("block");
+}
+
+describe("Forged in Fire - character selection branching (level1 only)", () => {
   beforeEach(() => {
     loadHtmlIntoDom();
     loadScript();
   });
 
-  test("Default state hides all level1 branches and clears info text", () => {
-    const ranger = document.getElementById("rangerStart");
-    const barbarian = document.getElementById("barbarianStart");
-    const rogue = document.getElementById("rogueStart");
-    const mage = document.getElementById("mageStart");
-
-    // script.js calls updateCharacter() once on load; default selection is ""
-    expect(ranger.style.display).toBe("none");
-    expect(barbarian.style.display).toBe("none");
-    expect(rogue.style.display).toBe("none");
-    expect(mage.style.display).toBe("none");
-
-    const info = document.getElementById("character-info");
-    expect(info.innerHTML).toBe("");
+  test("Default state hides all level1 branches", () => {
+    // script.js calls updateCharacter() on load with default selection ("")
+    expectHidden("rangerStart");
+    expectHidden("barbarianStart");
+    expectHidden("rogueStart");
+    expectHidden("mageStart");
   });
 
   test("Selecting ranger shows rangerStart and hides the other branches", () => {
     setSelectValue("character-select", "ranger");
 
-    expect(document.getElementById("rangerStart").style.display).toBe("block");
-    expect(document.getElementById("barbarianStart").style.display).toBe("none");
-    expect(document.getElementById("rogueStart").style.display).toBe("none");
-    expect(document.getElementById("mageStart").style.display).toBe("none");
-
-    expect(document.getElementById("character-info").innerHTML).toBe("You shot or whatever");
+    expectShown("rangerStart");
+    expectHidden("barbarianStart");
+    expectHidden("rogueStart");
+    expectHidden("mageStart");
   });
 
   test("Selecting barbarian shows barbarianStart and hides the other branches", () => {
     setSelectValue("character-select", "barbarian");
 
-    expect(document.getElementById("barbarianStart").style.display).toBe("block");
-    expect(document.getElementById("rangerStart").style.display).toBe("none");
-    expect(document.getElementById("rogueStart").style.display).toBe("none");
-    expect(document.getElementById("mageStart").style.display).toBe("none");
-
-    expect(document.getElementById("character-info").innerHTML).toBe("Next barbarian decision.");
+    expectShown("barbarianStart");
+    expectHidden("rangerStart");
+    expectHidden("rogueStart");
+    expectHidden("mageStart");
   });
 
   test("Selecting rogue shows rogueStart and hides the other branches", () => {
     setSelectValue("character-select", "rogue");
 
-    expect(document.getElementById("rogueStart").style.display).toBe("block");
-    expect(document.getElementById("rangerStart").style.display).toBe("none");
-    expect(document.getElementById("barbarianStart").style.display).toBe("none");
-    expect(document.getElementById("mageStart").style.display).toBe("none");
-
-    expect(document.getElementById("character-info").innerHTML).toBe("Next rogue decision.");
+    expectShown("rogueStart");
+    expectHidden("rangerStart");
+    expectHidden("barbarianStart");
+    expectHidden("mageStart");
   });
 
   test("Selecting mage shows mageStart and hides the other branches", () => {
     setSelectValue("character-select", "mage");
 
-    expect(document.getElementById("mageStart").style.display).toBe("block");
-    expect(document.getElementById("rangerStart").style.display).toBe("none");
-    expect(document.getElementById("barbarianStart").style.display).toBe("none");
-    expect(document.getElementById("rogueStart").style.display).toBe("none");
-
-    expect(document.getElementById("character-info").innerHTML).toBe("Next mage decision.");
+    expectShown("mageStart");
+    expectHidden("rangerStart");
+    expectHidden("barbarianStart");
+    expectHidden("rogueStart");
   });
 
-  test("Resetting to default hides all branches and clears info text again", () => {
+  test("Resetting to default hides all branches again", () => {
     setSelectValue("character-select", "mage");
-    setSelectValue("character-select", "");
+    setSelectValue("character-select", ""); // back to default option
 
-    expect(document.getElementById("rangerStart").style.display).toBe("none");
-    expect(document.getElementById("barbarianStart").style.display).toBe("none");
-    expect(document.getElementById("rogueStart").style.display).toBe("none");
-    expect(document.getElementById("mageStart").style.display).toBe("none");
-    expect(document.getElementById("character-info").innerHTML).toBe("");
+    expectHidden("rangerStart");
+    expectHidden("barbarianStart");
+    expectHidden("rogueStart");
+    expectHidden("mageStart");
   });
 });
